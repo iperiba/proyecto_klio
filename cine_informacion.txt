@@ -1,0 +1,55 @@
+https://bitbucket.org/iperezibanez/proyecto_cine/src
+
+NO INCLUIR LOS SIGUIENTES ARCHIVOS: 
+
+database/migrations/2014_10_12_000000_create_users_table.php
+database/migrations/2014_10_12_100000_create_password_resets_table.php
+
+Iniciar artisan 
+Crear una key
+php artisan storage:link
+
+ modified:   app/Http/Controllers/HomeController.php
+        modified:   app/Pelicula_Sala.php
+        modified:   database/migrations/2019_04_24_130517_create_new_tables.php
+        modified:   movie_review_htmls(1)/style.css
+        modified:   public/css/style.css
+        modified:   resources/views/home.blade.php
+        modified:   routes/web.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        cine_informacion.txt
+        database/migrations/2014_10_12_000000_create_users_table.php
+        database/migrations/2014_10_12_100000_create_password_resets_table.php
+        public/dummy/fondo.jpg
+
+
+$newDateString = date('Y-m-d H:i:s',strtotime('03/27/2015 01:17 pm'));
+
+ /*$user_list = DB::table('users')
+            ->select('name','email','created_at')
+            ->orderBy('created_at')
+            ->groupBy(DB::raw(MONTH('created_at')))
+            ->get();*/
+
+SI ALGUNA VEZ LAS QUERIES NO FUNCIONAN:
+https://stackoverflow.com/questions/40917189/laravel-syntax-error-or-access-violation-1055-error
+
+
+SELECT sa.codigo_sala, ps.fecha, pe.duracion
+FROM pelicula_sala ps
+INNER JOIN peliculas pe
+ON pe.id = ps.pelicula_id
+INNER JOIN salas sa
+ON sa.id = ps.sala_id
+WHERE pe.id = ?
+AND DATE(ps.fecha) IN (SELECT DATE(fecha) FROM pelicula_sala WHERE pelicula_id = ?
+        AND DATE(fecha) >= CURRENT_DATE GROUP BY DATE(fecha) ORDER BY DATE(fecha) ASC LIMIT 5);
+
+SELECT sa.codigo_sala, ps.fecha, pe.duracion FROM pelicula_sala ps INNER JOIN peliculas pe ON pe.id = ps.pelicula_id INNER JOIN salas sa ON sa.id = ps.sala_id WHERE pe.id = ? AND DATE(ps.fecha) IN (SELECT DATE(fecha) FROM pelicula_sala WHERE pelicula_id = ? AND DATE(fecha) >= CURRENT_DATE GROUP BY DATE(fecha) ORDER BY DATE(fecha) ASC LIMIT 5);
+
+
+
+

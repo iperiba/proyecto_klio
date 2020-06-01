@@ -1,0 +1,2 @@
+'{"fila":3, "butaca":31, "id_cliente":3, "bebida":6, "comida":7}'
+
